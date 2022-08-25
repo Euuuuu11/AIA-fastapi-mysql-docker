@@ -28,7 +28,7 @@ def main():
             userService = UserService()
             id = input('아이디 입력')
             password = input('비밀번호 입력')
-            userService.user_account(id, password)
+            userService.login(id, password)
 
 if __name__ == '__main__':
     main()
