@@ -5,13 +5,14 @@ basedir = os.path.dirname(os.path.abspath(__file__))
 
 from app.services.calculator import CalculatorService
 from app.services.user import UserService
-from app.services.score import ScoreService
+from app.services.grade import GradeService
 
 
 def print_menu():
     print('0. 전체프로그램 종료')
     print('1. 계산기 프로그램')
     print('2. 로그인 프로그램') # 입력받은 아이디와 비번 콘솔에 출력하기
+    print('3. 성적표 프로그램') 
     menu = input('메뉴 선택')
     return menu
     
@@ -32,20 +33,14 @@ def main():
             password = input('비밀번호 입력')
             userService.login(id, password)
         elif menu == '3':
-            scoreService = ScoreService()
-            name = input('이름 입력')
-            scoreService.Score2(name)
-            if ave >= 90:
-                
-               grade = "A"
-            elif 80 <= ave < 90:
-               grade = "B"
-            elif 70 <= ave < 80:
-               grade = "C"
-            else:
-               grade = "D"
-            print(f"당신의 평균 점수는 {Average}점으로 {grade}학점 입니다.")
-
+            gradeService = GradeService()
+            name = input('이름')
+            korean = input('국어 점수')
+            english = input('영어 점수')
+            math = input('수학 점수')
+            grade = gradeService.score(name, korean, english, math)
+            print(grade)
+            
 if __name__ == '__main__':
     main()
     
