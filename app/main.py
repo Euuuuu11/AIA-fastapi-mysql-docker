@@ -35,11 +35,11 @@ def main():
         elif menu == '3':
             gradeService = GradeService()
             name = input('이름')
-            korean = input('국어 점수')
-            english = input('영어 점수')
-            math = input('수학 점수')
-            grade = gradeService.score(name, korean, english, math)
-            print(grade)
+            korean = int(input('국어 점수'))
+            english = int(input('영어 점수'))
+            math = int(input('수학 점수'))
+            grade = gradeService.get_grade(name, korean, english, math)
+            print(f'이름 : {name} 학점 : {grade}')
             
 if __name__ == '__main__':
     main()
