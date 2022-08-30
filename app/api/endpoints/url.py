@@ -1,9 +1,11 @@
+from app.models.ddarung import DDarung
 from app.services.calculator import CalculatorService
 from app.services.user import UserService
 from app.services.grade import GradeService
 from app.services.quiz import Quiz
+from app.services.ddarung import DDarungService
 from app.constants.menus import LOGIN, LOGOUT, CALCULATOR, GRADE, \
-    QUIZ_1, QUIZ_2, QUIZ_3, QUIZ_4, QUIZ_5, QUIZ_6, QUIZ_7
+    QUIZ_1, QUIZ_2, QUIZ_3, QUIZ_4, QUIZ_5, QUIZ_6, QUIZ_7, DDARUNG
 class Url:
     
     def router(self, menu):
@@ -22,6 +24,10 @@ class Url:
             math = int(input('수학'))
             print(f'이름: {name} \
                 학점: {GradeService().get_grade(name,korean, english, math)}')
+        elif menu == DDARUNG: DDarungService().submit(
+            path='data/ddarung/', train='train.csv', test='test.csv'
+            )    
+            
         elif menu == QUIZ_1: Quiz().quiz_1()
         elif menu == QUIZ_2: Quiz().quiz_2()
         elif menu == QUIZ_3: Quiz().quiz_3()
