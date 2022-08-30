@@ -101,6 +101,33 @@ class Quiz(object):
         Name: 국어, dtype: int64
     
     '''
-    def quiz_5(self, subject) :
+    
+    def quiz_5(self) :
         scores = self.quiz_4()
-        
+        return scores
+       
+    ''' 
+    Q6 원하는 학생점수만 출력하시오. (아이디가 랜덤이므로 맨 위에 학생점수 출력으로 대체함)
+        lDZid  57  90  55  24
+    '''
+    def quiz_6(self, id) :
+        print(f'{id}의 성적출력') # 당연히 id 가 일치할리 없음. 형식적으로 출력함
+        scores = self.quiz_4()
+    
+    '''
+    Q7 각 학생들의 점수의 총합과 마지막 행은 과목총점 추가해서 출력
+        ic| df5:  국어   영어   수학   사회   과학    총점
+                    hVoGW   93   44   14   94   86   331
+                    QkpKK   25   54   29   10    8   126
+                    oDmky   82   65   31   31    2   211
+                    qdTeX   51   56   56    3   13   179
+                    XGzWk   34   32   67   48   23   204
+                    PAwgj   85   24   16    8   22   155
+                    vnTmB   28   80   52   43   48   251
+                    wuxIm   58   94   93   54   83   382
+                    AOQFG   32   50   95    1   52   230
+                    jHChe   59   37   80   27   39   242
+                    과목총점   547  536  533  319  376  2311
+    '''
+    def quiz_7(self) :
+        scores = self.quiz_4()

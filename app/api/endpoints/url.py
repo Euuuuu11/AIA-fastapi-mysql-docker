@@ -3,7 +3,7 @@ from app.services.user import UserService
 from app.services.grade import GradeService
 from app.services.quiz import Quiz
 from app.constants.menus import LOGIN, LOGOUT, CALCULATOR, GRADE, \
-    QUIZ_1, QUIZ_2, QUIZ_3, QUIZ_4, QUIZ_5
+    QUIZ_1, QUIZ_2, QUIZ_3, QUIZ_4, QUIZ_5, QUIZ_6, QUIZ_7
 class Url:
     
     def router(self, menu):
@@ -27,5 +27,6 @@ class Url:
         elif menu == QUIZ_3: Quiz().quiz_3()
         elif menu == QUIZ_4: Quiz().quiz_4()
         elif menu == QUIZ_5: Quiz().quiz_5()
-        
+        elif menu == QUIZ_6: Quiz().quiz_6()
+        elif menu == QUIZ_7: Quiz().quiz_7()
             
