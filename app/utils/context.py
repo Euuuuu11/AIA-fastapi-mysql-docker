@@ -8,12 +8,8 @@ class Context:
     test: object
     id: str
     label: str
+    model: object
     
-    @property
-    def path(self) -> str: return self._path
-    
-    @path.setter
-    def path(self, path): self._path = path
     
     @property
     def path(self) -> str: return self._path
@@ -32,6 +28,9 @@ class Context:
 
     @property
     def label(self) -> str: return self._label
+    
+    @property
+    def model(self) -> object: return self._model
 
     @path.setter
     def path(self, path): self._path = path
@@ -51,11 +50,15 @@ class Context:
     @label.setter
     def label(self, label): self._label = label
     
+    @model.setter
+    def model(self, model): self._model = model
+    
     @staticmethod
     def show_spec(param):
         ic(param.shape) #(715, 9) #train_set과 열 값이 '1'차이 나는 건 count를 제외했기 때문이다.예측 단계에서 값을 대입
         ic(param.columns)
         ic(param.info()) #null은 누락된 값이라고 하고 "결측치"라고도 한다.
         ic(param.describe()) 
-    
+        
+
     
