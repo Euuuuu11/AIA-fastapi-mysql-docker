@@ -36,7 +36,7 @@ class Url:
         elif menu == QUIZ_2: Quiz().quiz_2()
         elif menu == QUIZ_3: Quiz().quiz_3()
         elif menu == QUIZ_4: Quiz().quiz_4()
-        elif menu == QUIZ_5: Quiz().quiz_5()
-        elif menu == QUIZ_6: Quiz().quiz_6()
+        elif menu == QUIZ_5: Quiz().quiz_5('국어')
+        elif menu == QUIZ_6: Quiz().quiz_6('홍길동')
         elif menu == QUIZ_7: Quiz().quiz_7()
             

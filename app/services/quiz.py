@@ -56,7 +56,7 @@ class Quiz(object):
        df = pd.DataFrame(np.random.randint(10, 100, size=(2,3)))
        ic(df) 
     ''' 
-    Q4 국어, 영어, 수학, 사회 4과목을 시험치른 10명의 학생들의 성적표 작성. 단 점수 0 ~ 100이고 학생은 랜덤 알파벳 5자리 ID 로 표기
+    국어, 영어, 수학, 사회 4과목을 시험치른 10명의 학생들의 성적표 작성. 단 점수 0 ~ 100이고 학생은 랜덤 알파벳 5자리 ID 로 표기
     ic| self.id(): 'HKKHc'
     ic| self.score(): 22
     ic| df4:        국어  영어  수학  사회
@@ -72,6 +72,8 @@ class Quiz(object):
             GOJKU  62  17  75  49
     
     '''
+    # [i for i in []]
+    # [i for i in []]
     def id(self):
         return [ "".join([random.choice(string.ascii_letters) 
                           for i in range(5)]) for i in range(10)]
@@ -85,7 +87,7 @@ class Quiz(object):
             columns=['국어', '영어', '수학', '사회'])
         ic(df) 
         return df
-    
+        
     ''' 
     Q5 원하는 과목 점수만 출력하시오. (만약 국어라고 입력하면 아래와 같이 출력됨)
         hVoGW    93
@@ -101,33 +103,37 @@ class Quiz(object):
         Name: 국어, dtype: int64
     
     '''
-    
-    def quiz_5(self) :
+    def quiz_5(self, subject) :
         scores = self.quiz_4()
-        return scores
-       
+        scores.loc[:,subject]
+        
     ''' 
     Q6 원하는 학생점수만 출력하시오. (아이디가 랜덤이므로 맨 위에 학생점수 출력으로 대체함)
         lDZid  57  90  55  24
     '''
+    
     def quiz_6(self, id) :
         print(f'{id}의 성적출력') # 당연히 id 가 일치할리 없음. 형식적으로 출력함
         scores = self.quiz_4()
-    
+        ic(scores.iloc[[0],:])
     '''
     Q7 각 학생들의 점수의 총합과 마지막 행은 과목총점 추가해서 출력
         ic| df5:  국어   영어   수학   사회   과학    총점
-                    hVoGW   93   44   14   94   86   331
-                    QkpKK   25   54   29   10    8   126
-                    oDmky   82   65   31   31    2   211
-                    qdTeX   51   56   56    3   13   179
-                    XGzWk   34   32   67   48   23   204
-                    PAwgj   85   24   16    8   22   155
-                    vnTmB   28   80   52   43   48   251
-                    wuxIm   58   94   93   54   83   382
-                    AOQFG   32   50   95    1   52   230
-                    jHChe   59   37   80   27   39   242
-                    과목총점   547  536  533  319  376  2311
+                 hVoGW   93   44   14   94   86   331
+                 QkpKK   25   54   29   10    8   126
+                 oDmky   82   65   31   31    2   211
+                 qdTeX   51   56   56    3   13   179
+                 XGzWk   34   32   67   48   23   204
+                 PAwgj   85   24   16    8   22   155
+                 vnTmB   28   80   52   43   48   251
+                 wuxIm   58   94   93   54   83   382
+                 AOQFG   32   50   95    1   52   230
+                 jHChe   59   37   80   27   39   242
+                 과목총점   547  536  533  319  376  2311
     '''
     def quiz_7(self) :
         scores = self.quiz_4()
+        scores['총점'] = scores.sum(axis=1)
+        ls = scores.sum().tolist()
+        scores.loc['과목총점'] = ls
+        ic(scores)
